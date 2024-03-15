@@ -28,7 +28,7 @@ class User(Base):
 
 class Task(Base):
     __tablename__ = 'tasks'
-    task_id = Column(Integer(), primary_key=True)
+    id = Column(Integer(), primary_key=True)
     name = Column(String(80))
     due_date = Column(DateTime())
     priority = Column(Integer())
@@ -44,7 +44,7 @@ try:
     connection = engine.connect()
     print("Connection to PostgreSQL DB successful")
 
-    Base.metadata.drop_all(engine)
+    # Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
 
     # if not engine.dialect.has_table(engine, "users"):
